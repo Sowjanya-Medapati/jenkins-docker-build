@@ -3,6 +3,8 @@ pipeline {
      docker {
       image 'maven:3.8.3-openjdk-17'
       args '-v /var/run/docker.sock:/var/run/docker.sock'
+      sh 'apt update'
+      sh 'apt install docker-ce-cli'
       }
      }
 
@@ -22,8 +24,6 @@ pipeline {
                         }
           stage('docker-image') {
               steps {
-                 sh 'sudo apt update'
-                 sh 'apt install docker-ce-cli'
                  sh 'docker build -t task1-sowji .'
                     }
                                 }

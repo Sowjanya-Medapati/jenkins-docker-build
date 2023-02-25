@@ -3,8 +3,6 @@ pipeline {
      docker {
       image 'maven:3.8.3-openjdk-17'
       args '-v /var/run/docker.sock:/var/run/docker.sock'
-      sh 'apt update'
-      sh 'apt install docker-ce-cli'
       }
      }
 
@@ -13,6 +11,8 @@ pipeline {
             steps {
                 echo "Hello world !!"
                 echo "Hello Sowjanya !!!!"
+                sh 'apt update'
+                sh 'apt install docker-ce-cli'
                 sh 'mvn -B -DskipTests clean package'
                 echo "done"
                   }

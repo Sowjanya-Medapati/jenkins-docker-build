@@ -11,6 +11,7 @@ pipeline {
                 echo "Hello world !!"
                 echo "Hello Sowjanya !!!!"
                 sh 'mvn -B -DskipTests clean package'
+                echo "done"
             }
         }
     }

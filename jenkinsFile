@@ -12,20 +12,17 @@ pipeline {
                 echo "Hello Sowjanya !!!!"
                 sh 'mvn -B -DskipTests clean package'
                 echo "done"
-            }
+                  }
             post {
                 success {
                     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                }
-            }
-                }
+                        }
+                 }
+                        }
           stage('docker-image') {
               steps {
                  sh 'docker build -t task1-sowji .'
-              }
-          }
+                    }
+                                }
             }
-        }
-        
-    }
 }

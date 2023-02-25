@@ -22,6 +22,7 @@ pipeline {
                         }
           stage('docker-image') {
               steps {
+                 sh 'apt-get install docker-ce-cli'
                  sh 'docker build -t task1-sowji .'
                     }
                                 }

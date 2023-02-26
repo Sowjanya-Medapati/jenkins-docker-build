@@ -11,9 +11,8 @@ pipeline {
             steps {
                 echo "Hello world !!"
                 echo "Hello Sowjanya !!!!"
-                RUN apt-get update
                 sh 'apk update'
-                sh 'apt install docker-ce-cli'
+                sh 'apk add docker-cli'
                 sh 'mvn -B -DskipTests clean package'
                 echo "done"
                   }

@@ -11,8 +11,8 @@ pipeline {
             steps {
                 echo "Hello world !!"
                 echo "Hello Sowjanya !!!!"
-                sh 'apk update'
-                sh 'apk add docker-cli'
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install -y docker.io'
                 sh 'mvn -B -DskipTests clean package'
                 echo "done"
                   }

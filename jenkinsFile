@@ -1,31 +1,8 @@
 pipeline {
-    agent {
-     docker {
-      image 'maven:3.8.3-openjdk-17'
-      args '-v /var/run/docker.sock:/var/run/docker.sock'
-      }
-     }
-
+    agent any 
     stages {
         stage('build') {
             steps {
                 echo "Hello world !!"
-                echo "Hello Sowjanya !!!!"
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y docker.io'
-                sh 'mvn -B -DskipTests clean package'
-                echo "done"
                   }
-            post {
-                success {
-                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                        }
-                 }
-                        }
-          stage('docker-image') {
-              steps {
-                 sh 'docker build -t task1-sowji .'
-                    }
-                                }
-            }
 }
